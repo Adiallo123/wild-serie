@@ -28,7 +28,14 @@ const programs = [
   const browse = (req, res) => {
     res.json(programs);
   };
+
+  const read = (req, res) => {
+    console.info(req.params);
+  
+    res.send(`Hello Program ${req.params.id} !`);
+  };
+  
   
   // Export it to import it somewhere else
   
-  module.exports = { browse };
+  module.exports = { browse, read };
