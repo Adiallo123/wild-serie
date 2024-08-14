@@ -1,5 +1,6 @@
 // Some data to make the trick
-
+const tables = require("../../database/tables");
+/*
 const programs = [
     {
       id: 1,
@@ -22,13 +23,19 @@ const programs = [
       year: 2017,
     },
   ];
-  
+  */
   // Declare the action
-  
+  const browse = async (req, res) => {
+    const programsFromDB = await tables.program.readAll();
+
+    res.json(programsFromDB);
+  };
+
+  /*
   const browse = (req, res) => {
     res.json(programs);
   };
-
+*/
   const read = (req, res) => {
     console.info(req.params);
   
