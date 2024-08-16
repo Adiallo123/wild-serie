@@ -13,7 +13,9 @@ class ItemSeeder extends AbstractSeeder {
   // The run method - Populate the 'item' table with fake data
 
   run() {
-    // Generate and insert fake data into the 'item' table
+   
+     // Generate and insert fake data into the 'item' table
+     
     for (let i = 0; i < 10; i += 1) {
       // Generate fake item data
       const fakeItem = {
@@ -23,7 +25,31 @@ class ItemSeeder extends AbstractSeeder {
 
       // Insert the fakeItem data into the 'item' table
       this.insert(fakeItem); // insert into item(title, user_id) values (?, ?)
+
     }
+
+    const items = [
+      {
+        title: "Rambo",
+        user_id: this.getRef(`user_1`).insertId,
+      },
+     {
+        title: "Vendame",
+        user_id: this.getRef(`user_2`).insertId,
+      },
+      {
+        title: "coucou",
+        user_id: this.getRef(`user_3`).insertId,
+      },
+      
+    ];
+
+    items.forEach((item) => {
+      this.insert(item);
+    });
+
+   
+      
   }
 }
 
